@@ -107,9 +107,6 @@ data = r3.read()
 #print(data)
 #print("\n*****\n")
 
-
-username="wiedholze957"
-password="RoscoeTheDog!&"
 password = urllib.parse.quote_plus(password)
 content = "donotcache=1&j_username=" + username + "&j_password=" + password + "&_eventId_proceed="
 
