@@ -4,6 +4,9 @@ import http.client
 import urllib.parse
 import ssl
 
+username = ""
+password = ""
+
 #h1 = http.client.HTTPSConnection("localhost", 8080, context=ssl._create_unverified_context())
 #h1.set_tunnel("sandhills.mrooms3.net")
 h1 = http.client.HTTPSConnection("sandhills.mrooms3.net")
@@ -105,6 +108,8 @@ data = r3.read()
 #print("\n*****\n")
 
 
+username="wiedholze957"
+password="RoscoeTheDog!&"
 password = urllib.parse.quote_plus(password)
 content = "donotcache=1&j_username=" + username + "&j_password=" + password + "&_eventId_proceed="
 
@@ -230,11 +235,6 @@ day = 0
 i = 0
 msg = ''
 
-stri='''while i < len(data) - 1:
-    if ((data[i]) + (data[i + 1]) + (data[i + 2]) + (data[i + 3]) + (data[i + 4]) + (data[i + 5]) + (data[i + 6]) + (data[i + 7]) + (data[i + 8])) == "day today":
-        print("it works!\n\n\n\n")
-    i += 1'''
-i = 0
 while i < len(data) - 1:
     try:
         if (((data[i]) + (data[i + 1]) + (data[i + 2]) + (data[i + 3]) + (data[i + 4]) + (data[i + 5]) + (data[i + 6]) + (data[i + 7]) + (data[i + 8]) + (data[i + 9]) + (data[i + 10]) + (data[i + 11])) == "day nottoday") or (((data[i]) + (data[i + 1]) + (data[i + 2]) + (data[i + 3]) + (data[i + 4]) + (data[i + 5]) + (data[i + 6]) + (data[i + 7]) + (data[i + 8])) == "day today"):
