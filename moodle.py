@@ -23,8 +23,8 @@ def main():
         print(showhelp())
     elif sys.argv[1] == "help" or sys.argv[1] == "h":
         print(showhelp())
-    username = "wiedholze957"
-    password = "RoscoeTheDog!&"
+    username = ""
+    password = ""
 
     h1 = http.client.HTTPSConnection("localhost", 8080, context=ssl._create_unverified_context())
     h1.set_tunnel("sandhills.mrooms3.net")
