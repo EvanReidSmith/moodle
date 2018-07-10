@@ -23,8 +23,8 @@ def main():
         print(showhelp())
     elif sys.argv[1] == "help" or sys.argv[1] == "h":
         print(showhelp())
-    username = ""
-    password = ""
+    username = "wiedholze957"
+    password = "RoscoeTheDog!&"
 
     h1 = http.client.HTTPSConnection("localhost", 8080, context=ssl._create_unverified_context())
     h1.set_tunnel("sandhills.mrooms3.net")
@@ -300,7 +300,7 @@ def main():
             arg = 'd3'
         elif arg == 'wed':
             arg = 'd4'
-        elif arg == 'thr':
+        elif arg == 'thu':
             arg = 'd5'
         elif arg == 'fri':
             arg = 'd6'
@@ -337,5 +337,5 @@ def showdday(arg, msgList):
         index = today + (arg - weekday)
     else:
         index = today
-    print(msgList[index]-1)
+    print(msgList[index-1])
 main()
