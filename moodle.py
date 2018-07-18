@@ -12,9 +12,9 @@ def showhelp():
     options:
         h, help -- shows this message
         d1,d2,d3... -- shows the homework for the day of the week where d1 = Sunday
-        sun,mon,tue,wen,thu,fri,sat -- shows homework for that day
+        sun,mon,tue,wed,thu,fri,sat -- shows homework for that day
         t, today -- shows homework assignments due today
-        1,2,3,4,5... -- shows homework for that day of the week
+        1,2,3,4,5... -- shows homework for that day of the month
         a, all -- shows homework for the entire month
         """)
     sys.exit()
