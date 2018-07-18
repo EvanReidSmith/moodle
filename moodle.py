@@ -26,9 +26,9 @@ def main():
     username = ""
     password = ""
 
-    h1 = http.client.HTTPSConnection("localhost", 8080, context=ssl._create_unverified_context())
-    h1.set_tunnel("sandhills.mrooms3.net")
-    #h1 = http.client.HTTPSConnection("sandhills.mrooms3.net")
+    #h1 = http.client.HTTPSConnection("localhost", 8080, context=ssl._create_unverified_context())
+    #h1.set_tunnel("sandhills.mrooms3.net")
+    h1 = http.client.HTTPSConnection("sandhills.mrooms3.net")
     h1.request("GET", "/login/index.php")
     r1 = h1.getresponse()
     
@@ -76,9 +76,9 @@ def main():
     samlreq = "SAMLRequest=" + urllib.parse.quote_plus(samlreq)
     samlreq += "&RelayState=https%3A%2F%2Fsandhills.mrooms3.net%2Fauth%2Fsaml2%2Flogin.php"
     
-    #h2 = http.client.HTTPConnection("localhost", 12345)
-    h2 = http.client.HTTPSConnection("localhost", 8080, context=ssl._create_unverified_context())
-    h2.set_tunnel("sccidp.sandhills.edu")
+    h2 = http.client.HTTPConnection("localhost", 12345)
+    #h2 = http.client.HTTPSConnection("localhost", 8080, context=ssl._create_unverified_context())
+    #h2.set_tunnel("sccidp.sandhills.edu")
     #h2 = http.client.HTTPSConnection("sccidp.sandhills.edu")
     h2.putrequest("POST", "/idp/profile/SAML2/POST/SSO")
     h2.putheader('Content-Type', "application/x-www-form-urlencoded")
@@ -115,9 +115,9 @@ def main():
     #this is laziness
     urllist = endOfURL.split("?")
     endOfURL = urllist[1]
-    h3 = http.client.HTTPSConnection("localhost", 8080, context=ssl._create_unverified_context())
-    h3.set_tunnel("sccidp.sandhills.edu")
-    #h3 = http.client.HTTPSConnection("sccidp.sandhills.edu")
+    #h3 = http.client.HTTPSConnection("localhost", 8080, context=ssl._create_unverified_context())
+    #h3.set_tunnel("sccidp.sandhills.edu")
+    h3 = http.client.HTTPSConnection("sccidp.sandhills.edu")
     h3.putrequest("GET", "/idp/profile/SAML2/POST/SSO?" + endOfURL)
     h3.putheader('Cookie', "JSESSIONID=" + jsession)
     h3.endheaders()
@@ -129,9 +129,9 @@ def main():
     password = urllib.parse.quote_plus(password)
     content = "donotcache=1&j_username=" + username + "&j_password=" + password + "&_eventId_proceed="
     
-    h4 = http.client.HTTPSConnection("localhost", 8080, context=ssl._create_unverified_context())
-    h4.set_tunnel("sccidp.sandhills.edu")
-    #h4 = http.client.HTTPSConnection("sccidp.sandhills.edu")
+    #h4 = http.client.HTTPSConnection("localhost", 8080, context=ssl._create_unverified_context())
+    #h4.set_tunnel("sccidp.sandhills.edu")
+    h4 = http.client.HTTPSConnection("sccidp.sandhills.edu")
     h4.putrequest("POST", "/idp/profile/SAML2/POST/SSO?" + endOfURL)
     h4.putheader('Content-Length', str(len(content)))
     h4.putheader('Content-Type', "application/x-www-form-urlencoded")
@@ -171,9 +171,9 @@ def main():
     samlreq2 = urllib.parse.quote_plus(samlreq2)
     content = "RelayState=https%3A%2F%2Fsandhills.mrooms3.net%2Fauth%2Fsaml2%2Flogin.php&SAMLResponse=" + samlreq2
     
-    h5 = http.client.HTTPSConnection("localhost", 8080, context=ssl._create_unverified_context())
-    h5.set_tunnel("sandhills.mrooms3.net")
-    #h5 = http.client.HTTPSConnection("sandhills.mrooms3.net")
+    #h5 = http.client.HTTPSConnection("localhost", 8080, context=ssl._create_unverified_context())
+    #h5.set_tunnel("sandhills.mrooms3.net")
+    h5 = http.client.HTTPSConnection("sandhills.mrooms3.net")
     h5.putrequest("POST", "/auth/saml2/sp/saml2-acs.php/sandhills.mrooms3.net")
     h5.putheader('Content-Length', str(len(content)))
     h5.putheader('Content-Type', "application/x-www-form-urlencoded")
@@ -195,9 +195,9 @@ def main():
         samlAuth += samlAuthList[i]
         i += 1
     
-    #h6 = http.client.HTTPSConnection("sandhills.mrooms3.net")
-    h6 = http.client.HTTPSConnection("localhost", 8080, context=ssl._create_unverified_context())
-    h6.set_tunnel("sandhills.mrooms3.net")
+    h6 = http.client.HTTPSConnection("sandhills.mrooms3.net")
+    #h6 = http.client.HTTPSConnection("localhost", 8080, context=ssl._create_unverified_context())
+    #h6.set_tunnel("sandhills.mrooms3.net")
     h6.putrequest("GET", "/login/index.php")
     h6.putheader('Referer', "https://sccidp.sandhills.edu/idp/profile/SAML2/POST/SSO?" + endOfURL)
     h6.putheader('Cookie', moodleSess + "; " + samlSess + "; " + samlAuth)
@@ -220,9 +220,9 @@ def main():
     while moodleIdList[i] != ";":
         moodleId += moodleIdList[i]
         i += 1
-    h7 = http.client.HTTPSConnection("localhost", 8080, context=ssl._create_unverified_context())
-    h7.set_tunnel("sandhills.mrooms3.net")
-    #h7 = http.client.HTTPSConnection("sandhills.mrooms3.net")
+    #h7 = http.client.HTTPSConnection("localhost", 8080, context=ssl._create_unverified_context())
+    #h7.set_tunnel("sandhills.mrooms3.net")
+    h7 = http.client.HTTPSConnection("sandhills.mrooms3.net")
     h7.putrequest("GET", "/")
     h7.putheader('Referer', "https://sccidp.sandhills.edu/idp/profile/SAML2/POST/SSO?" + endOfURL)
     h7.putheader('Cookie', samlSess + ": " + samlAuth + "; " + moodleSess + "; " + moodleId)
@@ -230,9 +230,9 @@ def main():
     r7 = h7.getresponse()
     data = r7.read()
     
-    #h8 = http.client.HTTPSConnection("sandhills.mrooms3.net")
-    h8 = http.client.HTTPSConnection("localhost", 8080, context=ssl._create_unverified_context())
-    h8.set_tunnel("sandhills.mrooms3.net")
+    h8 = http.client.HTTPSConnection("sandhills.mrooms3.net")
+    #h8 = http.client.HTTPSConnection("localhost", 8080, context=ssl._create_unverified_context())
+    #h8.set_tunnel("sandhills.mrooms3.net")
     h8.putrequest("GET", "/calendar/view.php?view=month")
     h8.putheader('Cookie', samlSess + ": " + samlAuth + "; " + moodleSess + "; " + moodleId)
     h8.endheaders()
